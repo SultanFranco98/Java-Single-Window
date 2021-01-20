@@ -1,6 +1,7 @@
 package university.singlewindow.services.subdivision.impl;
 
 import lombok.NonNull;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import university.singlewindow.dto.subdivision.faculty.FacultyCreateRequest;
 import university.singlewindow.entity.subdivision.Faculty;
@@ -10,6 +11,7 @@ import university.singlewindow.services.subdivision.FacultyService;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class FacultyServiceImpl implements FacultyService {
     
     private final FacultyRepository facultyRepository;

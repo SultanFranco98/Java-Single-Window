@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "group")
+@Table(name = "groups")
 public class Group extends TimedEntity {
 
     @Column(name = "title", nullable = false)
