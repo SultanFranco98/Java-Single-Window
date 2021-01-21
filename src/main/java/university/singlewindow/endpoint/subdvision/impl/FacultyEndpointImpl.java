@@ -34,7 +34,7 @@ public class FacultyEndpointImpl implements FacultyEndpoint {
     @Override
     @Transactional
     public FacultyResponse update(@NonNull FacultyUpdateRequest request) {
-        return facultyMapper.toFacultyResponse(facultyService.update(request));
+        return facultyMapper.toFacultyResponse(facultyService.put(request));
     }
 
     @Override

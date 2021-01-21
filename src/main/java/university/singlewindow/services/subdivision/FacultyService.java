@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface FacultyService {
     Faculty create(FacultyCreateRequest request);
-    Faculty update(FacultyUpdateRequest request);
+    Faculty put(FacultyUpdateRequest request);
     Faculty retrieve(Long id);
     List<Faculty> list();
 }

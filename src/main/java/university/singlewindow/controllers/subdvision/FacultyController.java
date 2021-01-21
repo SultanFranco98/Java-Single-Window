@@ -1,5 +1,6 @@
 package university.singlewindow.controllers.subdvision;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import university.singlewindow.dto.subdivision.faculty.FacultyCreateRequest;
@@ -22,22 +23,22 @@ public class FacultyController {
 
     @PostMapping
     public ResponseEntity<FacultyResponse> create(@RequestBody FacultyCreateRequest request) {
-        return ResponseEntity.ok(facultyEndpoint.add(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(facultyEndpoint.add(request));
     }
 
     @PutMapping
     public ResponseEntity<FacultyResponse> update(@RequestBody FacultyUpdateRequest request) {
-        return ResponseEntity.ok(facultyEndpoint.update(request));
+        return ResponseEntity.status(HttpStatus.OK).body(facultyEndpoint.update(request));
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<FacultyResponse> retrieve(@PathVariable Long id) {
-        return ResponseEntity.ok(facultyEndpoint.getById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(facultyEndpoint.getById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<FacultyResponse>> list() {
-        return ResponseEntity.ok(facultyEndpoint.getAll());
+        return ResponseEntity.status(HttpStatus.OK).body(facultyEndpoint.getAll());
     }
 
 }

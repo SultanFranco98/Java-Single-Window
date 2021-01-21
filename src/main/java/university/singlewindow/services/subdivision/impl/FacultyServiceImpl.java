@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import university.singlewindow.dto.subdivision.faculty.FacultyCreateRequest;
 import university.singlewindow.dto.subdivision.faculty.FacultyUpdateRequest;
 import university.singlewindow.entity.subdivision.Faculty;
+import university.singlewindow.exceptions.ResourceNotFoundException;
 import university.singlewindow.repositories.subdivision.FacultyRepository;
 import university.singlewindow.services.subdivision.FacultyService;
 
@@ -32,7 +33,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     @Transactional
-    public Faculty update(@NonNull FacultyUpdateRequest request) {
+    public Faculty put(@NonNull FacultyUpdateRequest request) {
         Faculty faculty = retrieve(request.getId());
         faculty.setTitle(request.getTitle());
         faculty.setUpdateAt(LocalDateTime.now());
@@ -42,7 +43,7 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     @Transactional(readOnly = true)
     public Faculty retrieve(@NonNull Long id) {
-        return facultyRepository.findById(id).orElseThrow(() -> new IllegalStateException(
+        return facultyRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Faculty with id " + id + " does not exist"
         ));
     }

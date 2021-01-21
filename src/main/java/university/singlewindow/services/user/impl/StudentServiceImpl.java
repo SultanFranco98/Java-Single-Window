@@ -3,6 +3,7 @@ package university.singlewindow.services.user.impl;
 import lombok.NonNull;
 import org.springframework.transaction.annotation.Transactional;
 import university.singlewindow.entity.user.Student;
+import university.singlewindow.exceptions.ResourceNotFoundException;
 import university.singlewindow.repositories.user.StudentRepository;
 import university.singlewindow.services.user.StudentService;
 
@@ -18,7 +19,7 @@ public class StudentServiceImpl implements StudentService {
     @Transactional(readOnly = true)
     public Student getById(@NonNull Long id) {
         return studentRepository.findById(id)
-                .orElseThrow(() -> new IllegalStateException(
+                .orElseThrow(() -> new ResourceNotFoundException(
                         "Student with id " + id + " does not exist"
                 ));
     }
