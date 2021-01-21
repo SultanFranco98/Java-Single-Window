@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface FacultyEndpoint {
     FacultyResponse add(FacultyCreateRequest request);
-    FacultyResponse update(FacultyUpdateRequest request);
+    FacultyResponse update(Long id, FacultyUpdateRequest request);
     FacultyResponse getById(Long id);
     List<FacultyResponse> getAll();
 }

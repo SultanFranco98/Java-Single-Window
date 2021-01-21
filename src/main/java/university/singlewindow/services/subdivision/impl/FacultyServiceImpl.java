@@ -33,8 +33,8 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     @Transactional
-    public Faculty put(@NonNull FacultyUpdateRequest request) {
-        Faculty faculty = retrieve(request.getId());
+    public Faculty put(@NonNull Long id, @NonNull FacultyUpdateRequest request) {
+        Faculty faculty = retrieve(id);
         faculty.setTitle(request.getTitle());
         faculty.setUpdateAt(LocalDateTime.now());
         return facultyRepository.save(faculty);
