@@ -23,6 +23,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     }
 
     @Override
+    @Transactional
     public Specialty create(@NonNull SpecialtyCreateRequest request) {
         Specialty specialty = new Specialty();
         specialty.setTitle(request.getTitle());
@@ -32,6 +33,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     }
 
     @Override
+    @Transactional
     public Specialty put(@NonNull Long id, @NonNull SpecialtyUpdateRequest request) {
         Specialty specialty = retrieve(id);
         specialty.setTitle(request.getTitle());
