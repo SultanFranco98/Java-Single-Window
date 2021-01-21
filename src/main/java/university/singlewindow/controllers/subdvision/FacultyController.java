@@ -27,7 +27,7 @@ public class FacultyController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<FacultyResponse> update(@PathVariable Long id, @RequestBody FacultyUpdateRequest request) {
+    public ResponseEntity<FacultyResponse> put(@PathVariable Long id, @RequestBody FacultyUpdateRequest request) {
         return ResponseEntity.status(HttpStatus.OK).body(facultyEndpoint.update(id, request));
     }
 
