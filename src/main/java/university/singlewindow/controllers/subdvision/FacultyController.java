@@ -31,6 +31,12 @@ public class FacultyController {
         return ResponseEntity.status(HttpStatus.OK).body(facultyEndpoint.update(id, request));
     }
 
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<String> destroy(@PathVariable Long id) {
+        facultyEndpoint.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Faculty with id " + id + " removed");
+    }
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<FacultyResponse> retrieve(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(facultyEndpoint.getById(id));

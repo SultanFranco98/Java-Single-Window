@@ -43,6 +43,13 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     }
 
     @Override
+    @Transactional
+    public void destroy(@NonNull Long id) {
+        Specialty specialty = retrieve(id);
+        specialtyRepository.delete(specialty);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Specialty retrieve(@NonNull Long id) {
         return specialtyRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(

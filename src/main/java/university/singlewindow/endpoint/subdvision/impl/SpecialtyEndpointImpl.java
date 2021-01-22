@@ -43,6 +43,12 @@ public class SpecialtyEndpointImpl implements SpecialtyEndpoint {
     }
 
     @Override
+    @Transactional
+    public void delete(@NonNull Long id) {
+        facultyService.destroy(id);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public SpecialtyResponse getById(@NonNull Long id) {
         return specialtyMapper.toSpecialtyResponse(specialtyService.retrieve(id));

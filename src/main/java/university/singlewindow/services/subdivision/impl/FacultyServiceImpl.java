@@ -41,6 +41,13 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
     @Override
+    @Transactional
+    public void destroy(@NonNull Long id) {
+        Faculty faculty = retrieve(id);
+        facultyRepository.delete(faculty);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Faculty retrieve(@NonNull Long id) {
         return facultyRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(

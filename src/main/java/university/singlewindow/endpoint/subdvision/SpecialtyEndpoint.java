@@ -10,5 +10,6 @@ public interface SpecialtyEndpoint {
     SpecialtyResponse add(SpecialtyCreateRequest request);
     SpecialtyResponse update(Long id, SpecialtyUpdateRequest request);
     SpecialtyResponse getById(Long id);
+    void delete(Long id);
     List<SpecialtyResponse> getAll();
 }
