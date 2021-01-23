@@ -12,7 +12,7 @@ public class SpecialtyMapper {
         return SpecialtyResponse.builder()
                 .id(specialty.getId())
                 .title(specialty.getTitle())
-                .faculty(specialty.getFaculty())
+                .facultyId(specialty.getFaculty().getId())
                 .build();
     }
 }

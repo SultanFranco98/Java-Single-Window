@@ -42,9 +42,10 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     @Transactional
-    public void destroy(@NonNull Long id) {
+    public String destroy(@NonNull Long id) {
         Faculty faculty = retrieve(id);
-        facultyRepository.delete(faculty);
+        facultyRepository.deleteById(faculty.getId());
+        return "Faculty with id " + id + " removed";
     }
 
     @Override

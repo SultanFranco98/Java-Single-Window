@@ -44,9 +44,10 @@ public class SpecialtyServiceImpl implements SpecialtyService {
 
     @Override
     @Transactional
-    public void destroy(@NonNull Long id) {
+    public String destroy(@NonNull Long id) {
         Specialty specialty = retrieve(id);
-        specialtyRepository.delete(specialty);
+        specialtyRepository.deleteById(specialty.getId());
+        return "Specialty with id " + id + " removed";
     }
 
     @Override

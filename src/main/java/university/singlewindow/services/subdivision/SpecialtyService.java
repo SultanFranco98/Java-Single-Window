@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SpecialtyService {
     Specialty create(SpecialtyCreateRequest request);
-    void destroy(Long id);
+    String destroy(Long id);
     Specialty retrieve(Long id);
     Specialty put(Long id, SpecialtyUpdateRequest request);
     List<Specialty> list();

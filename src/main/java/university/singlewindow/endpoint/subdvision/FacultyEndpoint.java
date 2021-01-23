@@ -10,6 +10,6 @@ public interface FacultyEndpoint {
     FacultyResponse add(FacultyCreateRequest request);
     FacultyResponse update(Long id, FacultyUpdateRequest request);
     FacultyResponse getById(Long id);
-    void delete(Long id);
+    String delete(Long id);
     List<FacultyResponse> getAll();
 }

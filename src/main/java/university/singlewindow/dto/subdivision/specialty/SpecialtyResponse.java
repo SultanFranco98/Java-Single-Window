@@ -11,5 +11,5 @@ public class SpecialtyResponse {
 
     private Long id;
     private String title;
-    private Faculty faculty;
+    private Long facultyId;
 }

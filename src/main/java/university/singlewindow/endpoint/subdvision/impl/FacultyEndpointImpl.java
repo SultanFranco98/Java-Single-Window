@@ -39,8 +39,8 @@ public class FacultyEndpointImpl implements FacultyEndpoint {
 
     @Override
     @Transactional
-    public void delete(@NonNull Long id) {
-        facultyService.destroy(id);
+    public String delete(@NonNull Long id) {
+        return facultyService.destroy(id);
     }
 
     @Override
